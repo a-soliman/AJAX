@@ -21,5 +21,23 @@
 		<!-- ******Jquery GOOGLE CDN***** -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script src="js/main.js"></script>
+		<script>
+			function updateText() {
+				var current_text = document.getElementById('user_text').value
+				var http = new XMLHttpRequest()
+
+				// whenever the ready state changed
+				http.onreadystatechange = function() {
+
+					// only if the response was sent and was successful
+					if( http.readyState == 4 && http.status == 200) {
+						var response = http.responseText
+						document.getElementById('server_response').value = response
+					}
+				}
+				http.open('GET', 'http://localhost/template/server.php?user_text=' + current_text, true)
+				http.send()
+			}
+		</script>
 	</body>
 </html>
