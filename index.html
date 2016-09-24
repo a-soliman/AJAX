@@ -24,8 +24,9 @@
 
 		<script>
 			function updateText() {
+				
 				/*
-				//GET Method for AJAX
+				//GET Method for AJAX in JAVASCRIPT
 				var current_text = document.getElementById('user_text').value
 				var http = new XMLHttpRequest()
 
@@ -42,7 +43,11 @@
 				http.send()
 				*/
 
-				//POST METHOD
+				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+				/*
+				//POST Method for AJAX in JAVASCRIPT
 
 				var current_text = document.getElementById('user_text').value
 				var http = new XMLHttpRequest()
@@ -59,6 +64,18 @@
 				http.open('POST', 'http://localhost/template/server.php', true )
 				http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
 				http.send('user_text='+current_text)
+
+				*/
+
+				//GET Method for AJAX in JQUERY
+				var current_text = $('#user_text').val()
+				$.get('http://localhost/template/server.php', 'user_text=' +current_text, 
+					function(response, status, http) {
+						$('#server_response').val(response)
+					}, 'text')
+
+				
+
 			}
 		</script>
 	</body>
