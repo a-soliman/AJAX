@@ -79,16 +79,44 @@
 					}, 'text')
 				
 				*/
-				
+
 				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+				/*
 				//POST Method for AJAX in JQUERY
 				var current_text = $('#user_text').val()
 				$.post('http://localhost/template/server.php', 'user_text=' + current_text,
 					function(response,status, http) {
 						$('#server_response').val(response)
 					}, 'text')
+				
+
+				*/
+
+				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+				//GET and POST Methods using $.agax in JQUERY
+
+				var current_text = $('#user_text').val()
+				$.ajax({
+					url : 'http://localhost/template/server.php',
+					type : 'GET',
+					data : 'user_text=' + current_text,
+					dataType : 'text',
+					beforeSend : function( http ) {
+						alert( 'Before Send was just fired')
+					},
+					success : function(response, status, http) {
+						$('#server_response').val(response)
+					},
+					error: function(http, status, error) {
+						alert(' there is an error of ' + error)
+					}
+				})
+
+
 
 			}
 		</script>
