@@ -67,14 +67,28 @@
 
 				*/
 
+				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+				/*
 				//GET Method for AJAX in JQUERY
 				var current_text = $('#user_text').val()
 				$.get('http://localhost/template/server.php', 'user_text=' +current_text, 
 					function(response, status, http) {
 						$('#server_response').val(response)
 					}, 'text')
-
 				
+				*/
+				
+				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+				//POST Method for AJAX in JQUERY
+				var current_text = $('#user_text').val()
+				$.post('http://localhost/template/server.php', 'user_text=' + current_text,
+					function(response,status, http) {
+						$('#server_response').val(response)
+					}, 'text')
 
 			}
 		</script>
